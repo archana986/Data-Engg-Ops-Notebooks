@@ -6,7 +6,7 @@ Customer-facing **Databricks** patterns and bundles for data engineering and pla
 
 | Folder | Summary |
 |--------|---------|
-| [`multi-schema-csv-to-delta/`](multi-schema-csv-to-delta/) | Load **many CSV files with different schemas** (column order, subsets, header quirks) into **one canonical Delta** table via manifest + `unionByName`. Catalog, schema, and volume come from **`databricks.yml` variables**. |
+| [`multi-schema-csv-to-delta/`](multi-schema-csv-to-delta/) | Load **many CSV files with different schemas** into **one canonical Delta** table: **`inferSchema=False`**, **`unionByName(allowMissingColumns=True)`**, batched unions, single canonical projection, append + repartition for write fan-out; **`file_manifest.json`** maps physical headers to logical names. See that folder’s **README** for the full design. |
 
 ## Using a bundle
 
