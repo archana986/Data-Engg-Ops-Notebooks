@@ -1,0 +1,23 @@
+# Serverless-friendly notebook workflow: no cluster block (workspace default compute).
+resources:
+  jobs:
+    sf_account_wide_csv_lab:
+      name: "[${bundle.target}] SF Account wide CSV → Delta"
+      max_concurrent_runs: 1
+      tasks:
+        - task_key: generate_csvs
+          notebook_task:
+            notebook_path: ../src/notebooks/01_generate_salesforce_account_csv.ipynb
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              volume_name: ${var.volume_name}
+        - task_key: load_delta
+          depends_on:
+            - task_key: generate_csvs
+          notebook_task:
+            notebook_path: ../src/notebooks/02_load_csv_to_delta.ipynb
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              volume_name: ${var.volume_name}

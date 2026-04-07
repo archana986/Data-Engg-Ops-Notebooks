@@ -1,0 +1,14 @@
+# Local bundle overrides (never commit secrets or personal workspace URLs here)
+databricks.local.yml
+*.local.yml
+
+.env
+.env.*
+!.env.example
+
+.databricks/
+.idea/
+.vscode/
+*.pyc
+__pycache__/
+.DS_Store

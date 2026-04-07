@@ -1,0 +1,29 @@
+# Main bundle config. Override workspace host or targets locally via databricks.local.yml (gitignored).
+bundle:
+  name: data-engg-ops-notebooks
+
+include:
+  - resources/jobs.yml
+
+variables:
+  catalog:
+    description: Unity Catalog catalog where the demo schema and volume live
+    default: main
+  schema:
+    description: Schema for the volume, manifest, and Delta table
+    default: sf_account_csv_lab
+  volume_name:
+    description: Managed volume name under the schema
+    default: sf_account_raw
+
+targets:
+  dev:
+    default: true
+    mode: development
+    workspace:
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+
+  prod:
+    mode: production
+    workspace:
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}

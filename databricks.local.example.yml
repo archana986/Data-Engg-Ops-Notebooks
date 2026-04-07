@@ -1,0 +1,18 @@
+# Copy to: databricks.local.yml  (that filename is gitignored)
+# Databricks CLI merges this file over databricks.yml for your machine only.
+#
+# Example: pin a workspace host when not using ~/.databrickscfg default
+#
+# targets:
+#   dev:
+#     workspace:
+#       host: https://<your-workspace>.azuredatabricks.net
+#
+# Example: override catalog/schema for one environment
+#
+# targets:
+#   dev:
+#     variables:
+#       catalog: my_catalog
+#       schema: my_schema
+#       volume_name: my_volume
