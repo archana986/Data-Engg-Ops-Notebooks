@@ -1,6 +1,6 @@
 # Main bundle config. Override workspace host or targets locally via databricks.local.yml (gitignored).
 bundle:
-  name: data-engg-ops-notebooks
+  name: multi-schema-csv-to-delta
 
 include:
   - resources/jobs.yml

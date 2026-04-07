@@ -1,11 +1,11 @@
-# SETUP — Data Engg Ops Notebooks bundle
+# SETUP — Multi-schema CSV → Delta bundle
 
 ## How to use this bundle in your own workspace
 
 1. Clone the repository.
 2. Authenticate the Databricks CLI against **your** workspace.
 3. Set **`catalog`**, **`schema`**, and **`volume_name`** in `databricks.yml` (or pass `--var` at deploy time).
-4. Run `databricks bundle deploy` then `databricks bundle run sf_account_wide_csv_lab`.
+4. From `multi-schema-csv-to-delta/`, run `databricks bundle deploy` then `databricks bundle run multi_schema_csv_to_delta`.
 
 ## Prerequisites
 
@@ -37,6 +37,7 @@
 ## Validate the bundle
 
 ```bash
+cd multi-schema-csv-to-delta
 databricks bundle validate -t dev -p YOUR_PROFILE
 ```
 

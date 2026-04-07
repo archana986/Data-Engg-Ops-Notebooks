@@ -1,8 +1,8 @@
 # Serverless-friendly notebook workflow: no cluster block (workspace default compute).
 resources:
   jobs:
-    sf_account_wide_csv_lab:
-      name: "[${bundle.target}] SF Account wide CSV → Delta"
+    multi_schema_csv_to_delta:
+      name: "[${bundle.target}] Multi-schema CSV → Delta"
       max_concurrent_runs: 1
       tasks:
         - task_key: generate_csvs
